@@ -38,6 +38,7 @@ public class User {
     @Column(name = "roles")
     private List<String> roles;
     @OneToMany(mappedBy = "user", targetEntity = Nft.class, cascade = CascadeType.ALL)
+    @JsonIgnore
     private Set<Nft> nfts;
     @OneToOne(mappedBy = "user", targetEntity = ProfileImage.class, cascade = CascadeType.ALL)
     private ProfileImage profileImage;
