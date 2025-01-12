@@ -77,3 +77,4 @@ secrets.yml
 .git-hooks/
 node_modules
 !**/src/resources/application.properties
+.env

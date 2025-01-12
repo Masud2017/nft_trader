@@ -12,7 +12,7 @@ createRoot(document.getElementById('root')).render(
           name: "Example React Dapp",
           url: window.location.href,
         },
-        infuraAPIKey: "291de4047d444eb4b51ca7e682520be5",
+        infuraAPIKey: process.env.INFURA_API_KEY,
       }}
     >
       <Provider>
