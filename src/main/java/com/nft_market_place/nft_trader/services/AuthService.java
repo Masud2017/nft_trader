@@ -66,4 +66,14 @@ public class AuthService {
         this.userRepository.save(user);
         return new ResponseModel().setMessage("Profile image added successfully").setStatusCode(HttpStatus.OK);
     }
+
+    public ResponseModel addProfileImage(ProfileImage profileImage, String address) {
+        User user = this.userRepository.findByAddress(address);
+        if (user == null) {
+            return new ResponseModel().setMessage("User not found").setStatusCode(HttpStatus.NOT_FOUND);
+        }
+        user.setProfileImage(profileImage);
+        this.userRepository.save(user);
+        return new ResponseModel().setMessage("Profile image added successfully").setStatusCode(HttpStatus.OK);
+    }
 }
