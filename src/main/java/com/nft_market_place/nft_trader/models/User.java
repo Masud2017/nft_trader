@@ -42,6 +42,20 @@ public class User {
     @OneToOne(mappedBy = "ownerUser", targetEntity = ProfileImage.class, cascade = CascadeType.ALL)
     private ProfileImage profileImage;
 
+    // nonce
+    @Column(name = "nonce")
+    private Integer nonce;
+    public User() {
+        this.nonce = (int) (Math.random() * 1000000);
+    }
+
+    public Integer getNonce() {
+        return this.nonce;
+    }
+    public void setNonce(Integer nonce) {
+        this.nonce = nonce;
+    }
+
     // generate getter and setters
     public Long getId() {
         return id;
