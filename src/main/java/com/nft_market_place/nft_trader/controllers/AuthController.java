@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nft_market_place.nft_trader.models.ProfileImage;
@@ -34,7 +33,7 @@ public class AuthController {
         return this.authService.register(user);
     }
 
-    @PostMapping("/nonce/{address}")
+    @GetMapping("/nonce/{address}")
     public ResponseEntity<ResponseModel> getNonce(@PathVariable String address) {
         return ResponseEntity.ok(this.authService.getNonce(address));
     }
