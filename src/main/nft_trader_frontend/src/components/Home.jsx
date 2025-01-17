@@ -19,7 +19,14 @@ const Home = () => {
     useEffect(() => {
         if (!vantaEffect) {
           setVantaEffect(NET({
-            el: myRef.current
+            el: myRef.current,
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00
           }))
         }
         return () => {
@@ -38,7 +45,7 @@ const Home = () => {
     return (
         <>
         <Header/>
-        <Flex direction={"vertical"} w = "100vw" h = "100vh" p = {4} ref = {myRef}>
+        <Flex direction={"column"} w = "100vw" h = "100vh" p = {4} ref = {myRef}>
             <Box w = "100%" p = {4}>
                 <Center>
                     <Text fontSize={"xxx-large"} fontWeight={"bold"}>NFT Trader</Text>
@@ -59,8 +66,13 @@ const Home = () => {
                         {/* <input type="text" /> */}
                     </ReactTyped>
                 </Center>
-
             </Box>
+
+            <Center>
+                <Box mt={"5"} w = "50rem" bg = "#262523" h = {"10rem"} p = {3} borderRadius={"md"}>
+                    kk
+                </Box>
+            </Center>
         </Flex>
          {/* <Flex direction = "horizontal" w = "100vw" h = "100vh" p = {4} ref = {myRef}>
                 <Box w = "50%" h = "100%" color = "white">
