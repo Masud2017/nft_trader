@@ -1,13 +1,31 @@
-import { Box, Button, Center, Flex, HStack, Tooltip } from "@chakra-ui/react";
+import { Box, Button, Center, Flex, HStack, Text, Tooltip } from "@chakra-ui/react";
 import { useSDK } from "@metamask/sdk-react";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { LuInfo } from "react-icons/lu";
 import Header from "./Header";
+
+import NET from 'vanta/dist/vanta.net.min'
+import { ReactTyped } from "react-typed";
 
 
 const Home = () => {
     const [account, setAccount] = useState();
     const { sdk, connected, connecting, provider, chainId } = useSDK();
+
+    const [vantaEffect, setVantaEffect] = useState(null)
+    
+    
+    const myRef = useRef(null)
+    useEffect(() => {
+        if (!vantaEffect) {
+          setVantaEffect(NET({
+            el: myRef.current
+          }))
+        }
+        return () => {
+          if (vantaEffect) vantaEffect.destroy()
+        }
+      }, [vantaEffect])
 
     const connect = async () => {
         try {
@@ -20,9 +38,33 @@ const Home = () => {
     return (
         <>
         <Header/>
-         <Flex direction = "horizontal" w = "100vw" h = "100vh" p = {4}>
-                <Box w = "50%" h = "100%">
+        <Flex direction={"vertical"} w = "100vw" h = "100vh" p = {4} ref = {myRef}>
+            <Box w = "100%" p = {4}>
+                <Center>
+                    <Text fontSize={"xxx-large"} fontWeight={"bold"}>NFT Trader</Text>
+                    
+                    
+                </Center>
+                <Center>
+                    <ReactTyped
+                        strings={[
+                            "Marketplace for nft",
+                            "Trade any type of digital image",
+                        ]}
+                        typeSpeed={40}
+                        backSpeed={50}
+                        // attr="placeholder"
+                        loop
+                        >
+                        {/* <input type="text" /> */}
+                    </ReactTyped>
+                </Center>
 
+            </Box>
+        </Flex>
+         {/* <Flex direction = "horizontal" w = "100vw" h = "100vh" p = {4} ref = {myRef}>
+                <Box w = "50%" h = "100%" color = "white">
+                    Hello world
                 </Box>
 
                 <Box w = {"50%"} h={"100%"}>
@@ -30,9 +72,7 @@ const Home = () => {
                     <Center>
                             <HStack spacing={4}>
                                 <h1 className = "kanit-bold">Please connect with your metamask wallet to continue further.</h1>
-                            {/* <Tooltip content={"Connect with your metamask wallet to continue further."} aria-label="A tooltip"> */}
                                 <LuInfo/>
-                            {/* </Tooltip> */}
 
                             </HStack>
                         
@@ -52,7 +92,7 @@ const Home = () => {
                     </div>
                 )}
                 </Box>
-            </Flex>
+            </Flex> */}
         </>
     );
 }
