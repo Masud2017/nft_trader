@@ -1,5 +1,5 @@
 import { Avatar, AvatarIcon, Box, Button, Center, HStack } from "@chakra-ui/react";
-import { LuChrome, LuLightbulb, LuSearch, LuWallet } from "react-icons/lu";
+import { LuChrome, LuLightbulb, LuSearch, LuShoppingBag, LuWallet } from "react-icons/lu";
 import SearchBar from "./SearchBar";
 
 const Header = ()=> {
@@ -13,7 +13,7 @@ const Header = ()=> {
                     <HStack justifyContent={"space-between"} flex = {1}>
                         <SearchBar w = {"30rem"}/>
                         <HStack>
-                            <Button><LuChrome/> Home</Button>
+                            <Button><LuShoppingBag/> MarketPlace</Button>
                             <Button><LuLightbulb/> My NFTs</Button>
                             <Button><LuWallet/> My Collections</Button>
                             <Button><AvatarIcon />My Profile</Button>
