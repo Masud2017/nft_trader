@@ -1,6 +1,10 @@
 package com.nft_market_place.nft_trader.services;
 
-import come.nft_market_place.nft_trader.models.Nft;
+
+import com.nft_market_place.nft_trader.models.Nft;
+import org.springframework.http.ResponseEntity;
+
+import java.util.List;
 
 public interface NftService {
     ResponseEntity<List<Nft>> getNfts(String address);

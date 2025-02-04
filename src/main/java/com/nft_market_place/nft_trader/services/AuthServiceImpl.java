@@ -1,11 +1,21 @@
 package com.nft_market_place.nft_trader.services;
 
+import com.nft_market_place.nft_trader.models.ProfileImage;
+import com.nft_market_place.nft_trader.models.ResponseModel;
+import com.nft_market_place.nft_trader.models.User;
+import com.nft_market_place.nft_trader.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+@Service
 public class AuthServiceImpl implements AuthService {
     @Autowired
     private UserRepository userRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
-    private Logger logger = LoggerFactory.getLogger(AuthService.class);
+//    private Logger logger = LoggerFactory.getLogger(AuthService.class);
     
     @Override
     public ResponseModel getNonce(String address) {
@@ -44,6 +54,8 @@ public class AuthServiceImpl implements AuthService {
         this.userRepository.save(user);
         return new ResponseModel().setMessage("User registered successfully").setStatusCode(HttpStatus.OK);
     }
+
+
 
     @Override
     public ResponseModel addProfileImage(ProfileImage profileImage, Long userId) {

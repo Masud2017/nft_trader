@@ -1,5 +1,11 @@
 package com.nft_market_place.nft_trader.services;
 
+import com.nft_market_place.nft_trader.models.Nft;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 @Service
 public class NftServiceImpl implements NftService {
     @Override

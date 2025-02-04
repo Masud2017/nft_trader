@@ -21,6 +21,6 @@ public interface AuthService {
     ResponseModel getNonce(String address);
     ResponseModel authenticate(User user);
     ResponseModel register(User user);
-    ResponseModel addProfileImage(ProfileImage profileImage, Long userId)
-    ResponseModel addProfileImage(ProfileImage profileImage, String address)
+    ResponseModel addProfileImage(ProfileImage profileImage, Long userId);
+    ResponseModel addProfileImage(ProfileImage profileImage, String address);
 }
